@@ -2,15 +2,18 @@
   <div id="app">
     
     <my-header></my-header>
-    <!-- <router-view/> -->
+    <tab></tab>
+    <router-view/>
   </div>
 </template>
 
 <script>
 import MyHeader from "./components/header/myHeader.vue"
+import Tab from "./components/tab/tab.vue"
 export default {
   components:{
     MyHeader,
+    Tab
 
   },
   name: 'App'

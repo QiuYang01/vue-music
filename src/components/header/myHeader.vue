@@ -1,6 +1,6 @@
 <template>
       <div class="m-header">
-        <div class="icon">
+        <div class="icon height-align">
             <img src="../../assets/pic/logo@2x.png" width="60%" alt="">
         </div>
         <div class="text">Chicken Music</div>
@@ -35,6 +35,7 @@ export default {
     line-height: var(--headerHeight);
     /* background-image: url("../../assets/pic/logo@2x.png") ;
     background-size: 30px 32px; */
+    
     
 }
 .text {

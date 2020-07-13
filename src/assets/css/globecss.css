@@ -7,8 +7,15 @@
         url('../fonts/music-icon.svg?2qevqt#music-icon') format('svg'),
 
 }
-/* css变量 */
 
+/* 垂直居中 */
+.height-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* css变量 */
 :root {
     /* 顶部的高度 */
     --headerHeight : 8vh;
