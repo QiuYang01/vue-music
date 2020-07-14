@@ -6,6 +6,8 @@ cnpm install stylus --save-dev
 cnpm install stylus-loader --save-dev  
 引入vue-fontawesome字体图标 https://www.hangge.com/blog/cache/detail_2104.html
 https://fontawesome.com/icons?d=gallery&m=free
+npm install jsonp
+npm install axios --save
 
 
 
