@@ -17,6 +17,8 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('font-awesome-layers', FontAwesomeLayers)
 Vue.component('font-awesome-layers-text', FontAwesomeLayersText)
 
+import axios from 'axios'
+Vue.prototype.axios = axios //后面通过this.axios调用
 
 /* eslint-disable no-new */
 new Vue({

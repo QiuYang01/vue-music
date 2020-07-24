@@ -25,6 +25,7 @@
       flex: 1; /* 把一行平均分成4个 */
       text-align: center;
       background-color: var(--color-background);
+      cursor:pointer;
 }
 .tab-link{
         padding-bottom: 5px;

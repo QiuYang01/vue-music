@@ -8,7 +8,15 @@ cnpm install stylus-loader --save-dev
 https://fontawesome.com/icons?d=gallery&m=free
 npm install jsonp
 npm install axios --save
+npm install better-scroll --save
 
+
+
+
+
+
+获取轮播图的接口
+http://music.gnnu.work:4001/banner?type=2
 
 
 ## Build Setup
