@@ -32,3 +32,6 @@
     --color-text-l : rgba(255, 255, 255, 0.5);
     --color-text-ll : rgba(255, 255, 255, 0.8);
 }
+li {
+    list-style: none;
+}

@@ -7,6 +7,15 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path:"/",
+      redirect: '/recommend'
+    },
+    {
+      path:"/songlist",
+      component: ()=>
+          import ('@/components/songList/songList.vue'),
+    },
+    {
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
@@ -15,6 +24,14 @@ export default new Router({
       path:"/recommend",
       component: ()=>
           import ('@/components/recommend/recommend.vue'),
+          children: [
+            {
+              path: ':id',
+              component: ()=>
+              import ('@/components/songList/songList.vue'),
+            }
+          ]
+      
     },
     {
       path:"/singer",

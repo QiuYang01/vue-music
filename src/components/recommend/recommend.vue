@@ -1,13 +1,12 @@
 <template>
     <div>
-        <!-- <div v-for="item in banners" :key="item.id"> 
-            <img :src="item.pic" alt="">{{item.pic}}
-        </div> -->
+       
+        
         <solid effect="zoom" height="30vh" :list = this.bannersPicUrls></solid>
         <h2 style="text-align:center;color:var(--color-theme);font-size:1.2em">热门歌单推荐</h2>
         <!-- <scroll :data="playlists"> -->
         <div style="display: flex;flex-wrap: wrap;width:98%;margin:0 auto;">
-            <div v-for="(item,index) in playlists" :key="index" style=" flex: 1 0 100px;margin:10px" > 
+            <div v-for="(item,index) in playlists" :key="index" style=" flex: 1 0 100px;margin:10px" @click="goToSongList(item.id)"> 
                 <img width="100%" :src="item.picUrl" alt="">
                 <div>
                     <p style="font-size:0.8em;color:var(--color-theme)">{{item.name}}</p>
@@ -15,6 +14,7 @@
             </div>
         </div>
         <!-- </scroll> -->
+        <router-view></router-view>
     </div>
 </template>
 <script>
@@ -63,6 +63,13 @@ export default {
             getRecommend().then((res) =>{
                 console.log(res)
             })
+        },
+        //进入歌单详情 
+        goToSongList(playListId){
+           this.$router.push({
+          path: `/recommend/${playListId}`
+        })
+            
         }
     }
 }
