@@ -5,7 +5,8 @@
         </div>
         <div class="text">Chicken Music</div>
         <router-link tag="div" class="mine" to="/user">
-       <font-awesome-icon :icon="['fas', 'user']" size="lg" />
+            <i class="fa fa-user-o fa-lg" aria-hidden="true"></i>
+           
         </router-link>
     </div>
 </template>

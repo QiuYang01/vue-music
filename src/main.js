@@ -6,19 +6,13 @@ Vue.config.productionTip = false
 
 import  "./assets/css/globecss.css";
 //引入字体图标
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { far } from '@fortawesome/free-regular-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon, FontAwesomeLayers, FontAwesomeLayersText }
- from '@fortawesome/vue-fontawesome'
-library.add(fas, far, fab)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.component('font-awesome-layers', FontAwesomeLayers)
-Vue.component('font-awesome-layers-text', FontAwesomeLayersText)
+import 'font-awesome/css/font-awesome.css'  //引入字体图标
+//http://www.fontawesome.com.cn/faicons
 
 import axios from 'axios'
-Vue.prototype.axios = axios //后面通过this.axios调用
+axios.defaults.baseURL="http://122.51.65.4:4001" 
+Vue.prototype.$axios = axios //后面通过this.axios调用
+
 
 /* eslint-disable no-new */
 new Vue({

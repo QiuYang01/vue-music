@@ -1,6 +1,7 @@
 <template>
   <div id="app" style="display: flex;flex-direction: column;height:100vh">
-    <my-header></my-header>
+    
+    <my-header></my-header>  
     <tab></tab> 
     <router-view  style="flex-grow: 1;margin-top: auto;background-color:#fff"/>
   </div>

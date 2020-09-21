@@ -1,10 +1,8 @@
 <template>
     <div>
-       
-        
         <solid effect="zoom" height="30vh" :list = this.bannersPicUrls></solid>
         <h2 style="text-align:center;color:var(--color-theme);font-size:1.2em">热门歌单推荐</h2>
-        <!-- <scroll :data="playlists"> -->
+        <!-- <scroll  ref="scroll" :data="playlists"> -->
         <div style="display: flex;flex-wrap: wrap;width:98%;margin:0 auto;">
             <div v-for="(item,index) in playlists" :key="index" style=" flex: 1 0 100px;margin:10px" @click="goToSongList(item.id)"> 
                 <img width="100%" :src="item.picUrl" alt="">
@@ -30,44 +28,36 @@ export default {
            playlists:[], //歌单
         }
     },
-    created(){
+    mounted(){
         //获取轮播图的信息 http://music.gnnu.work/#/recommend
-        this.axios.get("http://music.gnnu.work:4001/banner?type=2")
+        this.$axios.get("/banner?type=2")
         .then(res =>{
-            //console.log(res);
-            //this.banners = res.data.banners;
             for(let i=0,len=res.data.banners.length; i<len; i++){
-               // console.log(res.data.banners[i].pic)
                 this.bannersPicUrls.push(res.data.banners[i].pic)  //获取轮播图的图片url
             }
-           //console.log(this.bannersPicUrls)
+           //console.log("bannerurl",this.bannersPicUrls)
         })
         .catch(err =>{
             console.log(err)
         });
 
-        //http://122.51.65.4:4001/top/playlist?limit=10&order=new  获取歌单的接口
-        this.axios.get("http://122.51.65.4:4001/personalized") 
-        //获取歌单详情 http://122.51.65.4:4001/playlist/detail?id=364899999
+        //获取歌单
+        this.$axios.get("/personalized") 
         .then(res =>{
-            console.log(res);
+            //console.log(res);
             this.playlists = res.data.result;
-            console.log(this.playlists)
+            //console.log(this.playlists)
         })
         .catch(err =>{
             console.log(err)
         });
     },
     methods:{
-        getRecommend(){
-            getRecommend().then((res) =>{
-                console.log(res)
-            })
-        },
+       
         //进入歌单详情 
         goToSongList(playListId){
            this.$router.push({
-          path: `/recommend/${playListId}`
+          path: `/recommend/songlist/${playListId}`
         })
             
         }

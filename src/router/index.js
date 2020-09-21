@@ -26,10 +26,15 @@ export default new Router({
           import ('@/components/recommend/recommend.vue'),
           children: [
             {
-              path: ':id',
+              path: 'songlist/:songlistid',
               component: ()=>
               import ('@/components/songList/songList.vue'),
-            }
+            },
+            {
+              path: 'song/:songid',
+              component: ()=>
+              import ('@/components/play/play.vue'),
+            },
           ]
       
     },
