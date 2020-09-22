@@ -1,20 +1,49 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as actions from './actions'
-import * as getters from './getters'
-import state from './state'
-import mutations from './mutations'
-import createLogger from 'vuex/dist/logger'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
-const debug = process.env.NODE_ENV !== 'production'
+//创建一个 store(仓库)
+const store = new Vuex.Store({
+    state: {
+      fullScreen: false,
+      songs:[],
+      currentIndex: -1,
 
-export default new Vuex.Store({
-  actions,
-  getters,
-  state,
-  mutations,
-  strict: debug,
-  plugins: debug ? [createLogger()] : []
-})
+      singer: {},
+      playing: false,
+
+      playlist: [],
+      sequenceList: [],
+      mode: 1,
+
+      disc: {},
+      topList: {},
+    },
+    mutations: {  //必须是同步的，不能发请求
+      setFullScreen (state,flag) {
+        state.fullScreen = flag;
+      },
+      setSongs(state,songs){
+        state.songs = songs;
+      },
+      setCurrentIndex (state,currentIndex) {
+        state.currentIndex = currentIndex;
+      },
+    },
+    actions: {  //可以执行异步请求
+      setFullScreen(context,flag){
+        context.commit('setFullScreen',flag)
+      },
+      setSongs(context,songs){
+        context.commit('setSongs',songs)
+      },
+      setCurrentIndex(context,currentIndex){
+        context.commit('setCurrentIndex',currentIndex)
+      },
+    }
+  })
+//可以通过 store.state 来获取状态对象，以及通过 store.commit 方法触发状态变更：
+//store.commit('increment')    console.log(store.state.count) // -> 1
+
+  export default store

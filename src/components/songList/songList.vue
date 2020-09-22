@@ -11,7 +11,7 @@
             <span style="padding:3px 12px;border:1px solid var(--color-theme);border-radius:10px"><i class="fa fa-play-circle" aria-hidden="true"></i>&nbsp;全部随机播放</span>
         </div>
         <div class="list">
-            <li class="songli"  v-for="(song,index) in playLists.songs" :key="index">
+            <li class="songli"  v-for="(song,index) in playLists.songs" :key="index" @click="toplay(index)">
                 <p>{{song.name}}</p>
                 <p style="color: hsla(0,0%,100%,.3);">{{song.ar[0].name}}</p>
             </li>  
@@ -38,6 +38,14 @@ export default {
       this.getSongList(this.$route.params.songlistid); 
     },
     methods:{
+        //显示播放界面，保存歌曲列表和当前歌曲的下标
+        toplay(currentIndex){
+            console.log(currentIndex)
+            this.$store.dispatch('setCurrentIndex',currentIndex);
+            this.$store.dispatch('setFullScreen',true);
+            //把当前歌曲列表保存在vuex中
+            this.$store.dispatch('setSongs',this.playLists.songs); 
+        },
         //通过歌单的id获取歌单的详情歌曲
         getSongList(id){
            this.$axios.get(`/playlist/detail?id=${id}`)
@@ -50,8 +58,9 @@ export default {
                 for(let i=0; i<length; i++)   //this.check(res.data.playlist.tracks[1].id);
                 {
                     // if(this.check(res.data.playlist.tracks[i].id))
-                         this.playLists.songs.push(res.data.playlist.tracks[i]);
+                    this.playLists.songs.push(res.data.playlist.tracks[i]);
                    // console.log(this.check(res.data.playlist.tracks[i].id))
+
                 }
                 this.loading = false;
                 console.log(this.playLists);
