@@ -9,6 +9,8 @@ https://fontawesome.com/icons?d=gallery&m=free
 >npm install jsonp
 >npm install axios --save
 >npm install better-scroll --save
+>npm install font-awesome -S
+>npm install lyric-parser -S
 
 
 

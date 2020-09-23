@@ -3,8 +3,9 @@
     
     <my-header></my-header>  
     <tab></tab> 
-    <router-view  style="flex-grow: 1;margin-top: auto;background-color:#fff"/>
-
+    <keep-alive>
+      <router-view  style="flex-grow: 1;margin-top: auto;background-color:#fff"/>
+    </keep-alive>
     <play v-if="this.$store.state.fullScreen"></play>
   </div>
 </template>

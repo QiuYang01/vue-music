@@ -54,13 +54,15 @@ export default {
                 this.playLists.coverImgUrl = res.data.playlist.coverImgUrl; //给歌单的图片赋地址
                 // res.data.playlist.tracks
                 let length =res.data.playlist.tracks.length; 
-                console.log("歌曲的个数"+length)
+                //console.log("歌曲的个数"+length)
                 for(let i=0; i<length; i++)   //this.check(res.data.playlist.tracks[1].id);
                 {
-                    // if(this.check(res.data.playlist.tracks[i].id))
-                    this.playLists.songs.push(res.data.playlist.tracks[i]);
-                   // console.log(this.check(res.data.playlist.tracks[i].id))
-
+                    //检验是否和播放
+                     if(!this.check(res.data.playlist.tracks[i].id)){
+                        this.playLists.songs.push(res.data.playlist.tracks[i]);
+                     }
+                    
+                    //console.log(this.check(res.data.playlist.tracks[i].id))
                 }
                 this.loading = false;
                 console.log(this.playLists);
@@ -71,9 +73,9 @@ export default {
         },
         //通过id核对音乐是否有效
         check(id){
-            this.axios.get("http://music.gnnu.work:4001/check/music?id="+id)
+            this.$axios.get("/check/music?id="+id)
             .then(res =>{
-                console.log(res.data.success);
+                //console.log(res.data.success);
                 return res.data.success;
                 
             })

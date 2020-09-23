@@ -6,7 +6,6 @@
 
 <script >
   import BScroll from 'better-scroll'
-
   export default {
     props: {
       probeType: {
