@@ -6,7 +6,7 @@
     <keep-alive>
       <router-view  style="flex-grow: 1;margin-top: auto;background-color:#fff"/>
     </keep-alive>
-    <play v-if="this.$store.state.fullScreen"></play>
+    <play v-show="this.$store.state.fullScreen"></play>
   </div>
 </template>
 
@@ -25,6 +25,18 @@ export default {
     return {
       
     } 
+  },
+  //利用计算属性
+  computed: {
+    fullScreen() {
+      return this.$store.state.fullScreen;
+    }
+  },
+  //监听执行
+  watch: {
+    fullScreen(val) {
+     console.log("fullScreen变化")
+    }
   },
   methods:{
      

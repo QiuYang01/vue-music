@@ -45,6 +45,7 @@ export default {
             this.$store.dispatch('setFullScreen',true);
             //把当前歌曲列表保存在vuex中
             this.$store.dispatch('setSongs',this.playLists.songs); 
+            console.log("store",this.$store.state)
         },
         //通过歌单的id获取歌单的详情歌曲
         getSongList(id){
