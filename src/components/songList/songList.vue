@@ -35,7 +35,7 @@ export default {
         }
     },
     created() {
-      this.getSongList(this.$route.params.songlistid); 
+       this.getSongList(this.$route.params.songlistid); 
     },
     methods:{
         //显示播放界面，保存歌曲列表和当前歌曲的下标

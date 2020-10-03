@@ -1,6 +1,6 @@
 <template> <!--  /*显示榜单*/ -->
    <div  style="width:96%;margin:0 auto;">   
-        <div v-loading='isloading' v-for="list in lists" :key="list.id">
+        <div  v-for="list in lists" :key="list.id">
             <div class="toplist" :style="{ backgroundImage: 'url('+ list.coverImgUrl+')'}">
                 <span style=";color:#fff" class="title">{{list.name}}<br/></span>
                 <span style="font-size:14px">{{list.updateFrequency}}</span><br/>
@@ -27,7 +27,7 @@ export default {
                 console.log("所有榜单");
                 console.log(res.data.list);
                 this.lists = res.data.list;
-                this.isloading = false;
+                
             })
             .catch(err =>{
                 console.log(err);
@@ -40,7 +40,7 @@ export default {
 <style scoped>
 .toplist {
     width: 100%;
-    height: 20vh;
+    height: 22vh;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     margin-top: 2vh;
